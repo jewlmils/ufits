@@ -3,12 +3,14 @@ import { TicketProvider } from './context/TicketContext'
 import LoginPage from './components/auth/LoginPage'
 import AdminDashboard from './components/admin/AdminDashboard'
 import SupervisorDashboard from './components/supervisor/SupervisorDashboard'
+import ReporterPortal from './components/reporter/ReporterPortal'
 
 function AppContent() {
   const { auth } = useAuth()
 
   if (!auth.isAuthenticated) return <LoginPage />
   if (auth.user.role === 'admin') return <AdminDashboard />
+  if (auth.user.role === 'reporter') return <ReporterPortal />
   return <SupervisorDashboard />
 }
 
