@@ -11,10 +11,10 @@ export const SLA_SECONDS = {
 
 const TicketContext = createContext(null)
 
-let _counter = INITIAL_TICKETS.length + 1
+let _counter = 1000
 
 function nextId() {
-  return `UFITS-TDP-2026-${String(_counter++).padStart(4, '0')}`
+  return `UFITS-TDP-2026-${_counter++}`
 }
 
 function escalatePriority(p) {
